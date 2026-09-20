@@ -35,3 +35,14 @@ internal/tests/scripts/temp/*
 __pycache__
 *.aps
 transcode_temp.dds
+
+# premake (DuelEngine build) outputs
+bin/
+obj/
+*.vcxproj
+*.vcxproj.filters
+Makefile
+*.make
+
+# runtime-compiled GPU shader cache (written next to the .hlsl by the DX backend)
+*.cmp
