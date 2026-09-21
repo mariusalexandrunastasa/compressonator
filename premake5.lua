@@ -48,11 +48,11 @@ project "CMP_Core"
 
     -- Per-file SIMD arch flags (mirrors the CMP_Core_SSE/AVX/AVX512 helper libs)
     filter { "system:linux", "files:cmp_core/source/core_simd_sse.cpp" }
-        buildoptions { "-march=nehalem" }
+        buildoptions { "-msse4.1" }
     filter { "system:linux", "files:cmp_core/source/core_simd_avx.cpp" }
-        buildoptions { "-march=haswell" }
+        buildoptions { "-mavx2", "-mfma" }
     filter { "system:linux", "files:cmp_core/source/core_simd_avx512.cpp" }
-        buildoptions { "-march=knl" }
+        buildoptions { "-mavx512f", "-mfma" }
     filter { "system:windows", "files:cmp_core/source/core_simd_avx.cpp" }
         buildoptions { "/arch:AVX2" }
     filter { "system:windows", "files:cmp_core/source/core_simd_avx512.cpp" }
