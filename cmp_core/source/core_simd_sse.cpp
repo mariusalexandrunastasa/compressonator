@@ -21,6 +21,7 @@
 //
 //=====================================================================
 
+#pragma GCC target("sse4.1")
 #include <xmmintrin.h>
 #include <smmintrin.h>
 

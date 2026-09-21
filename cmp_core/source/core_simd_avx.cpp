@@ -21,6 +21,7 @@
 //
 //=====================================================================
 
+#pragma GCC target("avx2,fma")
 #include <immintrin.h>
 
 #include "core_simd.h"

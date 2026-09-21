@@ -46,13 +46,7 @@ project "CMP_Core"
         "applications/_libs/cmp_math",
     }
 
-    -- Per-file SIMD arch flags (mirrors the CMP_Core_SSE/AVX/AVX512 helper libs)
-    filter { "system:linux", "files:cmp_core/source/core_simd_sse.cpp" }
-        buildoptions { "-msse4.1" }
-    filter { "system:linux", "files:cmp_core/source/core_simd_avx.cpp" }
-        buildoptions { "-mavx2", "-mfma" }
-    filter { "system:linux", "files:cmp_core/source/core_simd_avx512.cpp" }
-        buildoptions { "-mavx512f", "-mfma" }
+    -- SIMD arch: Linux uses #pragma GCC target in source files (gmake ignores per-file buildoptions)
     filter { "system:windows", "files:cmp_core/source/core_simd_avx.cpp" }
         buildoptions { "/arch:AVX2" }
     filter { "system:windows", "files:cmp_core/source/core_simd_avx512.cpp" }
